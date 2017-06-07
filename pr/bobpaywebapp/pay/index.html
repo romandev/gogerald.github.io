@@ -27,6 +27,10 @@
     });
     navigator.serviceWorker.controller.postMessage('payment_app_window_ready');
 
+    window.addEventListener('beforeunload', () => {
+      navigator.serviceWorker.controller.postMessage('payment_app_window_ready');
+    });
+
     function pay() {
       if(!received_payment_request) return;
 
